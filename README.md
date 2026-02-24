@@ -1,119 +1,43 @@
-# Grow a Garden Script with Auto Everything, Inf Money, No Key & More! 🚀
+# Rocket League Catch, Flick, Wall, Aerial & Reset Bot (RLBot)
 
-## 🌟 Feature Summary Table
+This repository contains a **Python RLBot agent** focused on:
 
-| Functionality           | Description                                                                 |
-|-------------------------|-----------------------------------------------------------------------------|
-| 🌾 Dupe Seeds           | Instantly clone any seeds without needing a key                             |
-| 🌕 AUTO MOONLIT         | Automates the Moonlit garden tasks and quests                               |
-| 💰 Infinite Money       | Earn unlimited coins passively through auto farming                         |
-| 🪴 Auto Plant            | Plants seeds automatically for maximum garden output                        |
-| 🔁 Auto Farm            | Enables constant harvesting and regrowth for continuous farming             |
-| 🛒 Auto Buy             | Auto-purchases seeds, pets, and upgrades with perfect timing                 |
-| 🌌 AUTO NIGHT           | Automates night-time events and boosts for rare resources                   |
-| 🦉 AUTO OWL QUEST       | Completes Owl quests instantly with no interaction needed                    |
-| 🎉 Auto Complete Event  | Finishes timed or seasonal events automatically                             |
-| 🧪 Keyless Access       | All features work with no key or password needed                             |
-| 🧺 Auto Collect         | Instantly picks up all garden rewards and resources                         |
-| 🐾 DUPE PETS            | Clone pets and companions without limits                                     |
-| 🧤 Inf Trowel           | Grants infinite trowel use for endless digging                               |
-| 🌙 AUTO LUNAR POINTS    | Earn lunar points 24/7 without lifting a finger                              |
-| 🌱 Seed Spawner         | Spawns any seed type on command, keyless and fast                            |
-| 🖥️ Native & OP GUI      | Fully integrated GUI for fast toggling and sleek visuals                     |
-| 💸 Auto Sell            | Automatically sells harvested goods for maximum profit                       |
+- consistent catches / dribbles / flicks,
+- full-boost wall setups into air-dribbles,
+- fast ground aerials,
+- stronger defense,
+- **air-roll-heavy aerial control** and **flip-reset attempts**.
 
----
+## Behavior overview
 
-## 📘 README.md
+- **Defense first** when own goal is threatened.
+- **Fast aerial mode** for quick high-ball contests.
+- **Flip-reset mode** for offensive high balls in reachable space:
+  - targets under-ball approach,
+  - uses heavy air-roll control,
+  - follows a jump/release/jump+boost sequence and reset follow-through.
+- **Wall air-dribble mode** when 100 boost + side-lane setup conditions are met.
+- fallback to catch/dribble/flick when no advanced mode is active.
 
-### 🌿 Grow a Garden Script: Auto Everything, Dupe, and Keyless 🌿
+## Quick start
 
-Welcome to the **most advanced automation script** for *Grow a Garden*! This powerful, native GUI tool is built for seamless performance, efficiency, and infinite farming capabilities. Whether you're chasing infinite money, duplicating rare seeds or pets, or completing events on autopilot, this script has everything you need to dominate your garden — effortlessly.
+1. Install Python 3.10+.
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Load `bot.cfg` through RLBotGUI / match config.
 
----
+## Tuning knobs
 
-### ⚙️ Key Features
+Open `rocketleague_bot/catch_flick_bot.py` and tune:
 
-- **Dupe Seeds and Pets Instantly**  
-  Maximize your garden resources by duplicating all seeds and pets without keys or delays. No restrictions, no cooldowns.
+- `RESET_COOLDOWN`
+- `AERIAL_COOLDOWN`
+- reset timing in `step_flip_reset`
+- air-roll intensity in `step_fast_aerial` / `step_flip_reset`
+- defense thresholds in `should_do_emergency_defense`
 
-- **Auto Plant + Auto Farm + Auto Collect**  
-  Fully hands-free farming. Watch your garden grow, harvest, and regenerate in a constant loop while you do literally nothing.
+## Notes
 
-- **Infinite Money Engine**  
-  Automatically sell and repurchase everything smartly — generating non-stop currency for continuous upgrades and dominance.
-
-- **AUTO MOONLIT & AUTO NIGHT**  
-  Whether it’s Moonlit events or nighttime bonuses, this script completes tasks with zero input. Achieve lunar point gains, rare seed drops, and more.
-
-- **AUTO OWL QUEST & Auto Complete Event**  
-  Complete quests and time-limited events instantly. Never miss out on a seasonal reward again.
-
-- **Keyless Operation**  
-  Every powerful feature is unlocked by default. Forget paywalls, subscriptions, or complicated access methods.
-
-- **OP Native GUI**  
-  A sleek, minimal, native-style GUI gives you access to all toggles and automation in real-time. Easy to use, built for performance.
-
----
-
-### 🚀 How to Use
-
-1. **Download the Script** ⬇️  
-   Clone or download the script to your local device.
-
-2. **Launch Your Game** 🕹️  
-   Start the game and load into the garden area.
-
-3. **Inject Script** 💉  
-   Use your favorite executor (e.g., Fluxus, KRNL, Synapse X) to run the script.
-
-4. **Activate Features** ⚙️  
-   Open the GUI and toggle the features you want:
-   - ✅ Enable Auto Plant
-   - ✅ Activate Dupe Seeds or Dupe Pets
-   - ✅ Start AUTO MOONLIT or AUTO COLLECT
-   - ✅ Watch Infinite Money Flow
-
-5. **Sit Back and Relax** 🛋️  
-   Your garden will manage itself while you focus on what matters — enjoying the game.
-
----
-
-### 🧩 Supported Functions
-
-This script is fully compatible with:
-
-- 🌙 Moonlit tasks
-- 🌾 Farming zones
-- 🐾 Pet systems
-- 💰 Shop auto-buying
-- 🦉 Quest completion
-- 🌚 Nighttime events
-- 🌱 Seed management
-
-No keys. No limits. Just efficient automation.
-
----
-
-### 🧠 SEO Keyword Targets
-
-**Dupe seeds**, **no key**, **infinite money**, **auto farm**, **auto plant**, **keyless GUI**, **dupe pets**, **seed spawner**, **auto complete event**, **AUTO MOONLIT**, **AUTO COLLECT**, **AUTO LUNAR POINTS**, **Inf Trowel**, **Native GUI**, **auto sell**, **AUTO NIGHT**, **AUTO OWL QUEST**
-
----
-
-### 📎 Disclaimer
-
-This script is for educational purposes only. Usage may violate game terms of service. Use responsibly.
-
----
-
-### 🌐 Stay Updated
-
-For updates, improvements, and support:
-- Follow the repository
-- ⭐ Star it if you found it helpful
-- Share it with friends who love automation!
-
----
-
+Flip resets are mechanically difficult; this bot uses heuristics for frequent and consistent attempts, but results still depend on game state and contact quality.
